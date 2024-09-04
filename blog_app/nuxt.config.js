@@ -1,9 +1,9 @@
 import colors from 'vuetify/es5/util/colors'
 
 export default {
-  router: {
-    middleware: ['auth']
-  },
+  // router: {
+  //   middleware: ['auth']
+  // },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     titleTemplate: '%s - blog_app',
@@ -70,6 +70,7 @@ export default {
         endpoints: {
           login: { url: '/login', method: 'post' },
           logout: { url: '/logout', method: 'post' },
+          register : {url: '/register', method: 'post'},
           user: { url: '/user', method: 'get' }
         }
       }
