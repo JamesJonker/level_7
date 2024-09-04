@@ -4,9 +4,9 @@
       <ul>
         <div v-if="$auth.loggedIn">
 
-          <li>
+          <!-- <li>
               <nuxt-link to="/posts">Posts</nuxt-link>
-          </li>
+          </li> -->
         </div>
         <div v-if="$auth.loggedIn">
           <li>
