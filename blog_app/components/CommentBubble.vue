@@ -51,12 +51,10 @@
         deleteComment(commentId, user_id, postId) {
           if(user_id === this.$auth.user.id){
 
-            if (confirm("Are you sure you want to delete this comment?" + commentId + user_id + postId )) {
-              // Call your API to delete the comment
+            if (confirm("Are you sure you want to delete this comment?"  )) {
               this.$axios
                 .delete(`/comments/${commentId}`)
                 .then(() => {
-                  // Remove the comment from the list
                   this.comments = this.comments.filter(
                     (comment) => comment.id !== commentId
                   );
@@ -66,10 +64,9 @@
                 });
             }
           }else{
-            alert("You are not the Auther of this comment you can not delete this commene!")
+            alert("You are not the Auther of this comment you can not delete this comment!")
           }
 
-        // Confirmation prompt before deleting
 
       }
    }

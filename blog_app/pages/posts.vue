@@ -142,21 +142,15 @@ import CommentBubble from '~/components/CommentBubble.vue';
     },
     deletePost(postinfo) {
 
-      // postId = post.id;
-        // Confirm before deleting
         console.log("auth", this.$auth.user);
         console.log("check Post",postinfo.id);
 
         if(this.$auth.user.id === postinfo.user_id){
 
           if (confirm("Are you sure you want to delete this post?")) {
-  
-  
-            // Call the API to delete the post
             this.$axios
               .delete(`/posts/${postinfo.id}`)
               .then(() => {
-                // Remove the post from the list
                 this.posts = this.posts.filter((post) => post.id !== postinfo.id);
               })
               .catch((error) => {

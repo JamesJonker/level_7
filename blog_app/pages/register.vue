@@ -37,7 +37,6 @@
     </div>
       <div class="form-group">
         <button type="submit">Register</button>
-        <!-- <v-btn color="blue darken-1" text @click="submit">Register</v-btn> -->
       </div>
     </form>
   </div>
@@ -55,16 +54,13 @@ export default {
   methods: {
     async register() {
       try {
-        // Replace with your API endpoint
         const response = await this.$axios.post('/register', {
           name: this.name,
           email: this.email,
           password: this.password
         });
-        // Handle successful registration (e.g., redirect to login)
         this.$router.push('/login');
       } catch (error) {
-        // Handle errors
         console.error('Registration failed:', error.response.data);
         alert('Registration failed: ' + error.response.data.message);
       }
@@ -74,14 +70,7 @@ export default {
 </script>
 
 <style scoped>
-/* Add your styles here */
-/* .register-container {
-  max-width: 100%;
-  margin: 50px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-} */
+
 
 .form-group {
   margin-bottom: 15px;

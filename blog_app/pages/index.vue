@@ -14,12 +14,6 @@
 <script>
 export default {
   middleware: 'auth',
-  // mounted() {
-  //   if (this.$auth.loggedIn) {
-  //     console.log('User is logged in:', this.$auth.user);
-  //   } else {
-  //     console.log('indexPage','User is not logged in.');
-  //   }
-  // }
+
 }
 </script>
