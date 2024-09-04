@@ -78,6 +78,7 @@ import CommentBubble from '~/components/CommentBubble.vue';
       };
     },
     async fetch() {
+      console.log("fetching")
       const response = await this.$axios.$get('/posts');
       console.log(response);
       this.posts = response;
@@ -108,6 +109,7 @@ import CommentBubble from '~/components/CommentBubble.vue';
         try {
           const response = await this.$axios.post('/posts', post);
           console.log('Post created:', response.data);
+          window.location.reload();
           this.posts.unshift(post);
         } catch (error) {
           console.error('Failed to create post:', error);

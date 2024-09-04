@@ -28,6 +28,9 @@
   </template>
   
   <script>
+
+import { mapGetters, mapActions } from 'vuex';
+
   export default {
     name: "AppHeader",
 
@@ -36,6 +39,7 @@
       user: null
     };
   },
+  
 
     mounted() {
     this.$root.$on('user-logged-out', this.reloadHeader);
