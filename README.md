@@ -34,6 +34,7 @@ run composer install
 
 cp .env.example .env
 
+Go into the code and setup the env file.
 */my .env file setting/* 
 
 APP_NAME=Laravel
@@ -84,7 +85,11 @@ npm install
 
 */ Once all the packages has been installed run the application/*
 
-npm dev run
+npm run dev
 
+Go into your browser to http://localhost:3000/
+
+
+*** MAKE SURE YOUR BACKEND IS RUNNING BEFORE TRYING TO UTILISE THE FRONTEND ***
 
 
