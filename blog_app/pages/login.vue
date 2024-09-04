@@ -1,7 +1,11 @@
 
 
 <template>
+  
     <v-container>
+      <div>
+        <AppHeader/>
+      </div>
       <v-form @submit.prevent="login" method="POST">
         <v-text-field v-model="email" label="Email" required></v-text-field>
         <v-text-field v-model="password" label="Password" type="password" required></v-text-field>
@@ -16,6 +20,7 @@
   </template>
   <script>
   
+  import AppHeader from '~/components/AppHeader.vue';
   export default {
     // middleware: 'auth',
     data() {
@@ -25,13 +30,17 @@
         errorMessage: ''
       }
     },
+    components: {
+    AppHeader
+  },
+
     methods: {
       async login() {
         try{
 
             const response = await this.$auth.loginWith('local', {
               data: {
-                email: this.email,
+                email: this.email,  
                 password: this.password
               }
             });

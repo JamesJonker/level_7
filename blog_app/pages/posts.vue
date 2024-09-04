@@ -1,5 +1,8 @@
 <template>
     <div class="posts-page">
+      <div>
+        <AppHeader/>
+      </div>
 
         <div class="top_section">
             <div aria-colindex="1">
@@ -59,14 +62,17 @@
 
 import NewPostModal from '/components/newPostModal.vue';
 import CommentBubble from '~/components/CommentBubble.vue';
+import AppHeader from '~/components/AppHeader.vue';
 
   export default {
     middleware: 'auth',
+    // name: "AppHeader",
     components: {
     NewPostModal,
   },
   components: {
-    CommentBubble
+    CommentBubble,
+    AppHeader
   },
 
     data() {
@@ -152,6 +158,8 @@ import CommentBubble from '~/components/CommentBubble.vue';
               .delete(`/posts/${postinfo.id}`)
               .then(() => {
                 this.posts = this.posts.filter((post) => post.id !== postinfo.id);
+                this.newComment[postId] = '';
+                window.location.reload();
               })
               .catch((error) => {
                 console.error("There was an error deleting the post:", error);

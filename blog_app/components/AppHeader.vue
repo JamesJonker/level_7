@@ -13,15 +13,16 @@
           <nuxt-link to="/logout">Logout</nuxt-link>
         </li>
         </div>
-        <div v-if="$auth.loggedIn">
+        <!-- <div v-if="$auth.loggedIn">
           <li>
             <nuxt-link to="/about">About</nuxt-link>
           </li>
-        </div>
+        </div> -->
         <div v-if="!$auth.loggedIn">
-          <li>
-          <nuxt-link to="/register">Register</nuxt-link>
-        </li>
+          
+            <li>
+              <nuxt-link :to="linkTo">{{ linkText }}</nuxt-link>
+          </li>
         </div>
       </ul>
     </header>
@@ -39,20 +40,33 @@ import { mapGetters, mapActions } from 'vuex';
       user: null
     };
   },
-  
-
     mounted() {
+      console.log("AppHeader", 'james');
     this.$root.$on('user-logged-out', this.reloadHeader);
       },
       methods: {
         async reloadHeader() {
           this.user = await this.$auth.fetchUser();
         }
-      }
+      },
+
+      computed: {
+    // Check if the current path is '/register'
+    isRegisterPage() {
+      return this.$route.path === '/register';
+    },
+    // Determine the link destination and text based on the current path
+    linkTo() {
+      return this.isRegisterPage ? '/login' : '/register';
+    },
+    linkText() {
+      return this.isRegisterPage ? 'Cancel' : 'Register';
+    }
+  }
 
   };
   </script>
-  
+
   <style>
   .header {
     display: flex;

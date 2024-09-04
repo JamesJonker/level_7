@@ -3,7 +3,7 @@
 
 
   <div class="container">
-    <AppHeader/>
+    <!-- <AppHeader/> -->
     <v-app>
       <nuxt/>
     </v-app>

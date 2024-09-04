@@ -1,8 +1,11 @@
 <template>
   <div class="register-container">
-    <h1>Register</h1>
-    <form @submit.prevent="register">
 
+    <div>
+        <AppHeader/>
+      </div>
+
+    <form @submit.prevent="register">
 
       <div class="form-group">
 
@@ -25,7 +28,7 @@
             <v-text-field
               label="password"
               v-model="password"
-              :type="showPassword ? 'text' : 'password'"
+              :type="showPassword ? 'text' : 'password'"  
                 prepend-icon="mdi-lock"
                 append-icon="mdi-eye"
               :rules="[v => !!v || 'Title is required']"

@@ -56,7 +56,8 @@
                 .delete(`/comments/${commentId}`)
                 .then(() => {
                   this.comments = this.comments.filter(
-                    (comment) => comment.id !== commentId
+                    (comment) => comment.id !== commentId,
+                    this.showComments = false
                   );
                 })
                 .catch((error) => {
